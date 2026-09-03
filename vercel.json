@@ -8,6 +8,11 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": false
+  },
   "headers": [
     {
       "source": "/(.*)",
