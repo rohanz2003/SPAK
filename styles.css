@@ -636,18 +636,20 @@ p strong { color: var(--ink); }
 .timeline li {
   position: relative;
   padding: 0 0 var(--space-xl) var(--space-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
 }
 .timeline li::before {
   content: '';
-  position: absolute;
-  left: calc(-1 * var(--space-lg) - 4px);
-  top: 0.3rem;
+  flex-shrink: 0;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--orange);
   border: 3px solid var(--bg);
   box-shadow: 0 0 0 2px var(--orange);
+  margin-top: 0.15em; /* Align with first line of text */
 }
 .tl-year {
   display: block;
@@ -661,7 +663,7 @@ p strong { color: var(--ink); }
 
 @media (max-width: 640px) {
   .timeline { padding-left: var(--space-md); }
-  .timeline li::before { left: calc(-1 * var(--space-md) - 4px); width: 10px; height: 10px; }
+  .timeline li::before { width: 10px; height: 10px; }
   .timeline li { padding-left: var(--space-md); }
 }
 
