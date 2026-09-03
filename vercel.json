@@ -6,7 +6,6 @@
   "devCommand": "",
   "installCommand": "",
   "outputDirectory": ".",
-  "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
