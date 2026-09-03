@@ -1,0 +1,21 @@
+# robots.txt for SPAK Metaal Craft
+# Place in document root
+
+User-agent: *
+Allow: /
+
+# Disallow admin/private areas (if any added later)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.md$
+
+# Sitemap location
+Sitemap: https://spakmetaalcraft.com/sitemap.xml
+
+# Crawl-delay (optional, be respectful)
+Crawl-delay: 10
+
+# Host directive (for Yandex)
+Host: https://spakmetaalcraft.com
