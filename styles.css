@@ -433,7 +433,7 @@ p strong { color: var(--ink); }
   background: var(--ink);
   color: #fff;
   padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
   font-size: 0.85rem;
   min-height: var(--touch-target);
   white-space: nowrap;
@@ -538,6 +538,7 @@ p strong { color: var(--ink); }
   overflow: hidden;
   padding: var(--space-2xl) var(--space-lg);
   isolation: isolate;
+  background: #d7d9dc;
 }
 .hero-img {
   position: absolute;
@@ -555,31 +556,44 @@ p strong { color: var(--ink); }
 .hero-content {
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: var(--ink);
   max-width: var(--maxw);
   margin: 0 auto;
   width: 100%;
-  text-align: left;
+  text-align: center;
   padding: var(--space-xl) 0;
+}
+.hero-brand {
+  color: #111111;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.8rem;
+  text-shadow: none;
 }
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: clamp(0.7rem, 1vw, 0.85rem);
-  color: #f7c89f;
+  color: #111111;
+  font-weight: 700;
   margin: 0 0 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .hero h1 {
-  color: #fff;
-  max-width: 680px;
+  color: #111111;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin-bottom: 0.8em;
   line-height: 1.08;
 }
 .hero-sub {
-  color: rgba(255,255,255,0.82);
-  max-width: 620px;
+  color: #111111;
+  max-width: 720px;
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   line-height: 1.75;
   margin: 0 0 1.6rem;
@@ -598,19 +612,23 @@ p strong { color: var(--ink); }
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
-  color: rgba(255,255,255,0.9);
+  color: #111111;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 .hero-trust li {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(35,38,42,0.12);
   border-radius: 999px;
   padding: 0.65rem 0.9rem;
 }
-.hero-trust i { color: var(--orange-light); }
+.hero-trust i {
+  color: #b94f00;
+  font-weight: 700;
+}
 
 .btn {
   display: inline-flex;
@@ -619,7 +637,7 @@ p strong { color: var(--ink); }
   text-decoration: none;
   font-weight: 600;
   padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   font-size: clamp(0.9rem, 1vw, 1rem);
   border: 2px solid transparent;
   min-height: var(--touch-target);
@@ -757,8 +775,12 @@ body {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 18px 32px rgba(37, 211, 102, 0.42);
 }
-.whatsapp-float i {
-  font-size: 1.1rem;
+.whatsapp-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 1.35rem;
+  fill: currentColor;
 }
 
 .hero {
@@ -788,39 +810,43 @@ body {
 .hero-content {
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: #111;
   max-width: var(--maxw);
   margin: 0 auto;
   width: 100%;
-  text-align: left;
+  text-align: center;
   padding: var(--space-xl) 0;
 }
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: clamp(0.7rem, 1vw, 0.85rem);
-  color: #f7c89f;
+  color: #111;
+  font-weight: 700;
   margin: 0 0 1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .hero h1 {
-  color: #fff;
-  max-width: 680px;
+  color: #111;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   margin-bottom: 0.8em;
 }
 .hero-sub {
-  color: rgba(255,255,255,0.82);
-  max-width: 620px;
+  color: #111;
+  font-weight: 500;
+  max-width: 720px;
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   line-height: 1.75;
-  margin-bottom: 1.6rem;
+  margin: 0 auto 1.6rem;
 }
 .hero-actions {
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .hero-trust {
   list-style: none;
@@ -829,19 +855,32 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
-  color: rgba(255,255,255,0.9);
+  justify-content: center;
+  color: #111;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 .hero-trust li {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(35,38,42,0.12);
   border-radius: 999px;
   padding: 0.65rem 0.9rem;
 }
-.hero-trust i { color: var(--orange-light); }
+.hero-trust i { color: #111; }
+
+.hero .btn-ghost {
+  color: var(--ink);
+  border-color: rgba(29,29,27,0.42);
+}
+.hero .btn-ghost:hover,
+.hero .btn-ghost:focus {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: rgba(255,255,255,0.35);
+}
 
 .stats-strip {
   background: #f4efe9;
@@ -982,6 +1021,9 @@ body {
     bottom: 12px;
     padding: 0.72rem 0.9rem;
     font-size: 0.75rem;
+    min-width: 48px;
+    min-height: 48px;
+    justify-content: center;
   }
   .whatsapp-float span { display: none; }
   .hero { padding: var(--space-xl) var(--space-md); }
