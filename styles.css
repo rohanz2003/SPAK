@@ -625,8 +625,14 @@ p strong { color: var(--ink); }
   border-radius: 999px;
   padding: 0.65rem 0.9rem;
 }
-.hero-trust i {
+.hero-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #b94f00;
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 1rem;
   font-weight: 700;
 }
 
@@ -707,6 +713,15 @@ p strong { color: var(--ink); }
   border-radius: 14px;
   font-size: 1.2rem;
   margin-bottom: var(--space-md);
+}
+.icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .trust-card h3,
 .process-card h3 {
@@ -869,7 +884,7 @@ body {
   border-radius: 999px;
   padding: 0.65rem 0.9rem;
 }
-.hero-trust i { color: #111; }
+.hero-check { color: #111; }
 
 .hero .btn-ghost {
   color: var(--ink);
