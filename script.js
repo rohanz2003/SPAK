@@ -1,7 +1,8 @@
 // Reveal-on-scroll animation
 const revealEls = document.querySelectorAll('[data-reveal]');
 
-if (revealEls.length) {
+if (revealEls.length && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('reveal-enabled');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
