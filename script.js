@@ -45,12 +45,15 @@ if (navToggle && mobileNav) {
   });
 }
 
-// Simple lightbox for the sample components gallery
-const galleryImages = document.querySelectorAll('.component-grid img');
+// Lightbox for all page content photos; header and footer logos are excluded.
+const contentImages = document.querySelectorAll('main img');
 
-if (galleryImages.length) {
+if (contentImages.length) {
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';
+  lightbox.setAttribute('role', 'dialog');
+  lightbox.setAttribute('aria-modal', 'true');
+  lightbox.setAttribute('aria-label', 'Image preview');
   const lightboxImg = document.createElement('img');
   const lightboxClose = document.createElement('button');
   lightboxClose.className = 'lightbox-close';
@@ -60,15 +63,13 @@ if (galleryImages.length) {
   lightbox.appendChild(lightboxClose);
   document.body.appendChild(lightbox);
 
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      lightboxClose.focus();
-    });
-  });
+  const openLightbox = (img) => {
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  };
 
   const closeLightbox = () => {
     lightbox.classList.remove('open');
@@ -76,19 +77,34 @@ if (galleryImages.length) {
     document.body.style.overflow = '';
   };
 
-  lightboxClose.addEventListener('click', (e) => {
-    e.stopPropagation();
+  contentImages.forEach(img => {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-haspopup', 'dialog');
+    img.setAttribute('aria-label', `Open image preview: ${img.alt || 'image'}`);
+
+    img.addEventListener('click', () => openLightbox(img));
+    img.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(img);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', (event) => {
+    event.stopPropagation();
     closeLightbox();
   });
 
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
       closeLightbox();
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) {
       closeLightbox();
     }
   });
